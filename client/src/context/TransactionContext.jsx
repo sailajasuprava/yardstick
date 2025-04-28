@@ -16,7 +16,6 @@ function TransactionProvider({ children }) {
     try {
       setIsLoading(true);
       const res = await axios.get("/transactions");
-      toast.success(res.data.message);
       setTransactions(res.data.data);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -53,6 +52,7 @@ function TransactionProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTransaction() {
   const context = useContext(TransactionContext);
   if (!context) throw new Error("TransactionContext used outside of provider.");

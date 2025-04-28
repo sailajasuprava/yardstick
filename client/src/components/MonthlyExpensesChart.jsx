@@ -16,7 +16,7 @@ export default function MonthlyExpensesChart() {
   const monthlyData = {};
 
   transactions.forEach((tx) => {
-    const month = format(new Date(tx.date), "MMM yyyy"); // e.g., "Apr 2025"
+    const month = format(new Date(tx.date), "MMM yyyy");
     if (!monthlyData[month]) {
       monthlyData[month] = 0;
     }
@@ -29,7 +29,7 @@ export default function MonthlyExpensesChart() {
   }));
 
   return (
-    <div className="w-full h-80 p-4 bg-white rounded-2xl shadow-md">
+    <div className="h-80 p-4 bg-white rounded-2xl shadow-md">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">
         Monthly Expenses
       </h2>
@@ -39,7 +39,7 @@ export default function MonthlyExpensesChart() {
           <XAxis dataKey="month" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="total" fill="#3b82f6" radius={[10, 10, 0, 0]} />
+          <Bar dataKey="total" fill="#0EA5E9" radius={[10, 10, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

@@ -45,50 +45,58 @@ export default function TransactionForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-5xl mx-auto">
-      <input
-        type="number"
-        name="amount"
-        value={formData.amount}
-        onChange={handleChange}
-        placeholder="Amount"
-        className="border p-2 w-full"
-      />
-      <input
-        type="date"
-        name="date"
-        value={formData.date}
-        onChange={handleChange}
-        className="border p-2 w-full"
-      />
-      <input
-        type="text"
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        placeholder="Description"
-        className="border p-2 w-full"
-      />
-      <select
-        name="category"
-        value={formData.category}
-        onChange={handleChange}
-        className="border p-2 w-full"
+    <div className="pt-20">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 max-w-3xl bg-white shadow-2xl p-10 mx-auto"
       >
-        {categories.map((cat) => (
-          <option key={cat} value={cat}>
-            {cat}
-          </option>
-        ))}
-      </select>
+        <h1 className="text-center text-sky-500 font-semibold text-3xl">
+          Add your transactions
+        </h1>
+        <input
+          type="number"
+          name="amount"
+          value={formData.amount}
+          onChange={handleChange}
+          placeholder="Amount"
+          className="border p-2 w-full"
+        />
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          className="border p-2 w-full"
+        />
+        <input
+          type="text"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="Description"
+          className="border p-2 w-full"
+        />
+        <select
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          className="border p-2 w-full"
+        >
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
 
-      <button
-        type="submit"
-        disabled={isLoading}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Add Transaction
-      </button>
-    </form>
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="bg-sky-500 text-white px-4 py-2 rounded"
+        >
+          Add Transaction
+        </button>
+      </form>
+    </div>
   );
 }

@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@layer components {
+  .red {
+    @apply uppercase cursor-pointer px-3 py-1 font-bold text-sm rounded-md bg-red-100 text-red-700;
+  }
+}
+
+.active {
+  background-color: #437d96;
+  padding: 5px 6px;
+  border-radius: 6px;
+  color: #33befa;
+}
