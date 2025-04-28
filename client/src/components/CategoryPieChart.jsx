@@ -8,7 +8,6 @@ import {
 } from "recharts";
 import { useTransaction } from "../context/TransactionContext";
 
-// Colors for each category
 const COLORS = [
   "#52bad5",
   "#87edcf",

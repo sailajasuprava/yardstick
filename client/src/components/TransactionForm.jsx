@@ -7,7 +7,7 @@ const initialState = {
   amount: "",
   date: "",
   description: "",
-  category: "other",
+  category: "",
 };
 
 const categories = [
@@ -53,21 +53,7 @@ export default function TransactionForm() {
         <h1 className="text-center text-sky-500 font-semibold text-3xl">
           Add your transactions
         </h1>
-        <input
-          type="number"
-          name="amount"
-          value={formData.amount}
-          onChange={handleChange}
-          placeholder="Amount"
-          className="border p-2 w-full"
-        />
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          className="border p-2 w-full"
-        />
+
         <input
           type="text"
           name="description"
@@ -76,18 +62,38 @@ export default function TransactionForm() {
           placeholder="Description"
           className="border p-2 w-full"
         />
+
+        <input
+          type="number"
+          name="amount"
+          value={formData.amount}
+          onChange={handleChange}
+          placeholder="Amount"
+          className="border p-2 w-full"
+        />
+
         <select
           name="category"
+          required
           value={formData.category}
           onChange={handleChange}
           className="border p-2 w-full"
         >
+          <option value="">Select category</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>
               {cat}
             </option>
           ))}
         </select>
+
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          className="border p-2 w-full"
+        />
 
         <button
           type="submit"
