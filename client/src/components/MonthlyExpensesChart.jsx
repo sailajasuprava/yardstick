@@ -9,11 +9,14 @@ import {
 } from "recharts";
 import { format } from "date-fns";
 import { useTransaction } from "../context/TransactionContext";
+import Spinner from "./Spinner";
 
 export default function MonthlyExpensesChart() {
-  const { transactions } = useTransaction();
-  // Group transactions by month
+  const { transactions, isLoading } = useTransaction();
+
   const monthlyData = {};
+
+  if (isLoading) return <Spinner />;
 
   transactions.forEach((tx) => {
     const month = format(new Date(tx.date), "MMM yyyy");
